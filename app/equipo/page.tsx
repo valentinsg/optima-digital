@@ -7,34 +7,34 @@ const teamMembers = [
   {
     name: "Brisa Colombini",
     role: "Directora Creativa y de Contenido",
-    image: "/placeholder.svg?height=600&width=600",
+    image: "/Bri.webp",
     bio: "Responsable de la identidad visual, estrategia de marca y creación de contenido personalizado para cada cliente. Con su experiencia en diseño y comunicación, Brisa lidera el desarrollo de narrativas efectivas que conectan marcas con sus audiencias.",
     social: {
       linkedin: "#",
       instagram: "#",
-      email: "brisa@optimadigital.com",
+      email: "bricolombini@gmail.com",
     },
   },
   {
     name: "Facundo Pérez",
     role: "Director Comercial y Ventas",
-    image: "/placeholder.svg?height=600&width=600",
+    image: "/Facu.webp",
     bio: "Encargado de relaciones con clientes, planificación comercial y estrategia de expansión de la agencia. Facundo combina su experiencia en ventas con un profundo conocimiento del mercado digital para desarrollar propuestas de valor únicas para cada cliente.",
     social: {
       linkedin: "#",
       instagram: "#",
-      email: "facundo@optimadigital.com",
+      email: "facoperez66@gmail.com",
     },
   },
   {
     name: "Valentín Sánchez Guevara",
     role: "Responsable de Desarrollo Web y Producto Digital",
-    image: "/placeholder.svg?height=600&width=600",
+    image: "/Valen.webp",
     bio: "Encargado de diseñar y construir soluciones digitales a medida que potencien la presencia online y el rendimiento de los clientes. Valentín combina habilidades técnicas con un enfoque centrado en el usuario para crear experiencias digitales excepcionales.",
     social: {
       linkedin: "#",
       instagram: "#",
-      email: "valentin@optimadigital.com",
+      email: "sanchezguevaravalentin@gmail.com",
     },
   },
 ]
