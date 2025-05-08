@@ -5,13 +5,13 @@ const teamMembers = [
   {
     name: "Brisa Colombini",
     role: "Directora Creativa y de Contenido",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/Bri.webp",
     bio: "Responsable de la identidad visual, estrategia de marca y creación de contenido personalizado para cada cliente.",
   },
   {
     name: "Facundo Pérez",
     role: "Director Comercial y Ventas",
-    image: "/Facu.png",
+    image: "/Facu.webp",
     bio: "Encargado de relaciones con clientes, planificación comercial y estrategia de expansión de la agencia.",
   },
   {
