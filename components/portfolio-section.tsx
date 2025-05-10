@@ -6,21 +6,21 @@ import ScrollReveal from "@/components/scroll-reveal"
 
 const portfolioItems = [
   {
-    title: "Rediseño de marca para Café Aroma",
-    description: "Incremento del 45% en reconocimiento de marca",
-    image: "/placeholder.svg?height=400&width=600",
+    title: "Feria De Artesanos Del Bosque",
+    description: "Logo nuevo, paleta de colores, creación de contenido y marketing digital básico promocional.",
+    image: "/Logo_de_FEED_1.webp",
     link: "/portfolio#cafe-aroma",
   },
   {
-    title: "Campaña digital para Tech Solutions",
-    description: "200% de aumento en leads calificados",
-    image: "/placeholder.svg?height=400&width=600",
+    title: "Heladería Matimel",
+    description: "Creación de contenido para Instagram y TikTok, gestión de cuentas y análisis de resultados.",
+    image: "/Logo_FEED_3_.webp",
     link: "/portfolio#tech-solutions",
   },
   {
-    title: "E-commerce para Moda Urbana",
-    description: "Incremento del 80% en ventas online",
-    image: "/placeholder.svg?height=400&width=600",
+    title: "Chungaratos Pet Shop",
+    description: "Mejora de la identidad de marca, creación de contenido para Instagram y Facebook, gestión de cuentas y análisis de resultados.",
+    image: "/Logo_FEED_4.webp",
     link: "/portfolio#moda-urbana",
   },
 ]
@@ -40,22 +40,25 @@ export default function PortfolioSection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
           {portfolioItems.map((item, index) => (
             <ScrollReveal key={item.title} delay={300 + index * 100} className="group">
-              <Link href={item.link} className="block overflow-hidden rounded-lg">
-                <div className="relative overflow-hidden rounded-lg">
+              <Link href={item.link} className="block overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-100">
+                <div className="relative overflow-hidden">
                   <Image
                     src={item.image || "/placeholder.svg"}
                     alt={item.title}
                     width={600}
                     height={400}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-white/90">{item.description}</p>
-                  </div>
+                </div>
+                <div className="p-6 bg-white">
+                  <h3 className="text-xl font-bold text-primary mb-3 line-clamp-2 group-hover:text-primary/80 transition-colors">{item.title}</h3>
+                  <p className="text-gray-700 mb-4 line-clamp-3">{item.description}</p>
+                  <span className="inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-1 transition-transform duration-300">
+                    Ver proyecto <ArrowRight className="ml-1 h-4 w-4" />
+                  </span>
                 </div>
               </Link>
             </ScrollReveal>
@@ -63,7 +66,7 @@ export default function PortfolioSection() {
         </div>
 
         <ScrollReveal delay={600} className="text-center mt-10">
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white">
+          <Button asChild className="bg-primary hover:bg-primary/90 text-white">
             <Link href="/portfolio">
               Ver todos los proyectos <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
