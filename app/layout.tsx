@@ -15,10 +15,55 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Óptima Digital | Agencia de Marketing Digital",
+  title: "Óptima Digital | Agencia de Marketing Creativa en Argentina - SEO, Branding y Desarrollo Web",
   description:
-    "Impulsamos negocios en el mundo digital. Servicios de marketing digital, branding, desarrollo web y SEO.",
-    generator: 'v0.dev'
+    "Óptima Digital es tu agencia creativa de marketing en Buenos Aires y Mar del Plata. Brindamos soluciones digitales para pymes, e-commerce y negocios en crecimiento: SEO, branding, redes sociales, desarrollo web, diseño visual y estrategias personalizadas.",
+  keywords: [
+    "agencia de marketing",
+    "agencia creativa digital",
+    "marketing digital en Argentina",
+    "desarrollo web Buenos Aires",
+    "SEO Mar del Plata",
+    "branding digital",
+    "community manager Argentina",
+    "asesoría digital personalizada",
+    "agencia digital en Mar del Plata",
+    "consultora de marketing digital",
+    "soluciones digitales para pymes",
+    "marketing visual",
+    "diseño de identidad digital",
+    "creación de contenido visual",
+    "seguimiento por WhatsApp",
+    "agencia de marketing en Buenos Aires",
+    "óptima digital",
+    "agencia digital nacional"
+  ],
+  authors: [{ name: "Óptima Digital" }],
+  robots: "index, follow",
+  viewport: "width=device-width, initial-scale=1.0",
+  openGraph: {
+    title: "Óptima Digital | Agencia de Marketing Creativa en Argentina",
+    description: "Soluciones digitales para empresas: marketing, branding, SEO, redes sociales y desarrollo web desde Buenos Aires y Mar del Plata.",
+    type: "website",
+    url: "https://www.optimaagencia.com/",
+    images: [
+      {
+        url: "https://www.optimaagencia.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Óptima Digital"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Óptima Digital | Agencia Creativa Digital",
+    description: "Impulsamos tu marca con marketing digital, SEO, desarrollo web y branding estratégico. Desde Mar del Plata y Buenos Aires hacia toda Argentina.",
+    images: ["https://www.optimaagencia.com/og-image.jpg"]
+  },
+  icons: {
+    icon: "/favicon.ico"
+  }
 }
 
 export default function RootLayout({

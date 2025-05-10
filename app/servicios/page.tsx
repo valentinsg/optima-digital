@@ -114,7 +114,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="pt-32 pb-20">
-      <div className="max-w-[1200px] mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         <ScrollReveal>
           <h1 className="text-4xl font-bold text-center mb-4 text-text">Nuestros Servicios</h1>
         </ScrollReveal>
