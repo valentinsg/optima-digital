@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     images: ["https://www.optimaagencia.com/og-image.jpg"]
   },
   icons: {
-    icon: "/favicon.ico"
+    icon: "/optimafavicon.ico"
   }
 }
 
