@@ -1,0 +1,46 @@
+---
+import UploadForm from "../components/UploadForm.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Busy Convert</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica, sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        max-width: 400px;
+        width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 700;
+        font-size: 2rem;
+        color: #555454;
+        font-family: "Horizon", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Busy Convert</h1>
+      <UploadForm />
+    </div>
+  </body>
+</html>

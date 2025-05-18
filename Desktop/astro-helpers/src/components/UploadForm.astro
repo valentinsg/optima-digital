@@ -1,0 +1,64 @@
+<form id="uploadForm" style="display:flex; flex-direction:column; gap:1rem;">
+  <input type="file" name="file" required />
+  <select name="type">
+    <option value="image">Imagen → WebP</option>
+    <option value="video">Video → WebM</option>
+  </select>
+  <input type="password" name="apiKey" placeholder="API Key" required />
+  <button type="submit" style="background:#555454; color:white; padding:0.5rem 1rem; border:none; border-radius:8px; cursor:pointer;">
+    Convertir
+  </button>
+</form>
+
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("uploadForm");
+
+    if (!(form instanceof HTMLFormElement)) {
+      console.error("Formulario no encontrado.");
+      return;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const type = form.querySelector("select[name='type']");
+      const fileInput = form.querySelector("input[name='file']");
+      const apiKeyInput = form.querySelector("input[name='apiKey']");
+
+      if (!type || !fileInput || !apiKeyInput) {
+        alert("Faltan campos en el formulario.");
+        return;
+      }
+
+      const endpoint = type.value === 'image' ? '/convert-image' : '/convert-video';
+
+      try {
+        const res = await fetch(`https://valen-dev-helpers.onrender.com${endpoint}`, {
+          method: 'POST',
+          headers: {
+            'x-api-key': apiKeyInput.value
+          },
+          body: formData
+        });
+
+        if (!res.ok) {
+          const errorText = await res.text();
+          alert(`Error: ${res.status} - ${errorText}`);
+          return;
+        }
+
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fileInput.files[0].name.split('.')[0] + (type.value === 'image' ? '.webp' : '.webm');
+        a.click();
+      } catch (error) {
+        alert("Error de red o inesperado: " + error.message);
+        console.error(error);
+      }
+    });
+  });
+</script>
