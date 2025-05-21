@@ -35,12 +35,12 @@ export default function Header() {
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4",
+        scrolled ? "bg-primary shadow-md py-2 font-bold text-white" : "bg-transparent py-4",
       )}
     >
       <div className="max-w-[1200px] mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
-          <span className="text-primary font-bold text-2xl">Óptima Digital</span>
+        <Link href="/" className="flex items-center" >
+          <span className={cn("text-white font-bold text-2xl", scrolled ? "text-white hover:brightness-[0.95]" : "text-primary hover:text-primary hover:brightness-[1.05]")}>Óptima Digital</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -49,19 +49,19 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-text hover:text-primary font-medium transition-colors"
+              className={cn("text-white hover:text-primary font-medium transition-colors", scrolled ? "text-white hover:text-primary hover:brightness-[0.95]" : "text-primary hover:text-primary hover:brightness-[1.05]")}
             >
               {item.name}
             </Link>
           ))}
-          <Button asChild className="bg-primary hover:bg-primary/90 text-white">
+          <Button asChild className={cn("bg-primary hover:bg-primary/90 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background", scrolled ? "border-white border-2 text-white hover:text-white hover:bg-primary hover:brightness-[0.95]" : "text-white hover:text-white hover:brightness-[1.05]")}>
             <Link href="/contacto">Trabajá con nosotros</Link>
           </Button>
         </nav>
 
         {/* Mobile Navigation Toggle */}
         <button
-          className="md:hidden text-text"
+          className="md:hidden text-white"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         >
@@ -71,19 +71,19 @@ export default function Header() {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-primary shadow-md py-4">
           <nav className="max-w-[1200px] mx-auto px-4 flex flex-col space-y-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-text hover:text-primary font-medium py-2 transition-colors"
+                className={cn("text-white hover:text-white hover:brightness-[0.75] font-medium py-2 transition-colors", scrolled ? "text-white hover:text-white hover:brightness-[0.75]" : "text-primary hover:text-primary hover:brightness-[1.05]")}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full">
+            <Button asChild className={cn("bg-white hover:bg-primary/90 text-primary w-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background", scrolled ? "bg-primary text-white hover:text-white hover:brightness-[0.95]" : "text-white hover:text-primary hover:brightness-[1.05]")}>
               <Link href="/contacto" onClick={() => setIsOpen(false)}>
                 Trabajá con nosotros
               </Link>

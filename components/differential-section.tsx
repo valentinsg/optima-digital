@@ -21,14 +21,14 @@ const differentials = [
 
 export default function DifferentialSection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-[1200px] mx-auto px-4">
+    <section className="py-20 bg-gradient-to-t from-[#DEECFE] to-white">
+      <div className="mb-16 max-w-6xl mx-auto">
         <ScrollReveal>
-          <h2 className="section-title text-center">Nuestro diferencial</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6">Nuestro diferencial</h2>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <p className="section-subtitle text-center">Óptima se adapta al cliente, no el cliente a la agencia.</p>
+          <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto leading-relaxed">Óptima se adapta al cliente, no el cliente a la agencia.</p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">

@@ -4,7 +4,6 @@ import { Poppins } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { ThemeProvider } from "@/components/theme-provider"
 import ScrollToTop from "@/components/scroll-to-top"
 import SmoothScroll from "@/components/smooth-scroll"
 
@@ -15,7 +14,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Óptima Digital | Agencia de Marketing Creativa en Argentina - SEO, Branding y Desarrollo Web",
+  title: "Óptima Digital | Agencia de Marketing",
   description:
     "Óptima Digital es tu agencia creativa de marketing en Buenos Aires y Mar del Plata. Brindamos soluciones digitales para pymes, e-commerce y negocios en crecimiento: SEO, branding, redes sociales, desarrollo web, diseño visual y estrategias personalizadas.",
   keywords: [
@@ -73,16 +72,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${poppins.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1 mx-auto w-full">{children}</main>
-            <Footer />
-            <ScrollToTop />
-            <SmoothScroll />
-          </div>
-        </ThemeProvider>
+      <body className={`${poppins.variable} font-sans`} suppressHydrationWarning>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1 mx-auto w-full">{children}</main>
+          <Footer />
+          <ScrollToTop />
+          <SmoothScroll />
+        </div>
       </body>
     </html>
   )

@@ -3,86 +3,128 @@ import { ArrowRight, Camera, Globe, Palette, Instagram, BarChart, Search } from 
 import { Button } from "@/components/ui/button"
 import ScrollReveal from "@/components/scroll-reveal"
 
-const services = [
-  {
-    icon: <Instagram className="h-10 w-10 text-primary" />,
-    title: "Gestión de Redes Sociales",
-    description:
-      "Gestionamos tus redes sociales (Instagram, Facebook, TikTok) con estrategias efectivas para aumentar tu visibilidad y engagement.",
-    link: "/servicios#redes",
-  },
-  {
-    icon: <Palette className="h-10 w-10 text-primary" />,
-    title: "Branding",
-    description: "Creamos y fortalecemos la identidad de tu marca para destacar en un mercado competitivo.",
-    link: "/servicios#branding",
-  },
-  {
-    icon: <Globe className="h-10 w-10 text-primary" />,
-    title: "Diseño y Desarrollo Web",
-    description: "Diseñamos sitios web atractivos, funcionales y optimizados para convertir visitantes en clientes.",
-    link: "/servicios#web",
-  },
-  {
-    icon: <Camera className="h-10 w-10 text-primary" />,
-    title: "Creación de Contenido Visual",
-    description:
-      "Producimos contenido visual de calidad (foto y video presencial) para potenciar tu presencia digital.",
-    link: "/servicios#contenido",
-  },
-  {
-    icon: <BarChart className="h-10 w-10 text-primary" />,
-    title: "Analítica y Reportes",
-    description: "Analizamos el rendimiento de tus canales digitales para tomar decisiones basadas en datos.",
-    link: "/servicios#analitica",
-  },
-  {
-    icon: <Search className="h-10 w-10 text-primary" />,
-    title: "SEO y Posicionamiento",
-    description: "Mejoramos la visibilidad de tu negocio en los motores de búsqueda para aumentar tu tráfico orgánico.",
-    link: "/servicios#seo",
-  },
-]
 
 export default function ServicesSection() {
+  const services = [
+    {
+      icon: <Instagram className="h-6 w-6 text-pink-600" />,
+      title: "Gestión de Redes Sociales",
+      description: "Estrategias efectivas para aumentar tu visibilidad y engagement en Instagram, Facebook y TikTok.",
+      link: "/servicios#redes",
+      bgColor: "bg-pink-50",
+      borderColor: "border-pink-100",
+      iconBg: "bg-pink-100",
+    },
+    {
+      icon: <Palette className="h-6 w-6 text-blue-600" />,
+      title: "Branding",
+      description: "Creamos identidades visuales únicas que destacan en mercados competitivos.",
+      link: "/servicios#branding",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-100",
+      iconBg: "bg-blue-100",
+    },
+    {
+      icon: <Globe className="h-6 w-6 text-green-600" />,
+      title: "Desarrollo Web",
+      description: "Sitios web atractivos y optimizados que convierten visitantes en clientes.",
+      link: "/servicios#web",
+      bgColor: "bg-green-50",
+      borderColor: "border-green-100",
+      iconBg: "bg-green-100",
+    },
+    {
+      icon: <Camera className="h-6 w-6 text-orange-600" />,
+      title: "Contenido Visual",
+      description: "Producción profesional de foto y video para potenciar tu presencia digital.",
+      link: "/servicios#contenido",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-100",
+      iconBg: "bg-orange-100",
+    },
+    {
+      icon: <BarChart className="h-6 w-6 text-cyan-600" />,
+      title: "Analítica",
+      description: "Análisis de rendimiento para decisiones basadas en datos concretos.",
+      link: "/servicios#analitica",
+      bgColor: "bg-cyan-50",
+      borderColor: "border-cyan-100",
+      iconBg: "bg-cyan-100",
+    },
+    {
+      icon: <Search className="h-6 w-6 text-purple-600" />,
+      title: "SEO",
+      description: "Mejoramos tu visibilidad en buscadores para aumentar el tráfico orgánico.",
+      link: "/servicios#seo",
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-100",
+      iconBg: "bg-purple-100",
+    },
+  ]
+
   return (
-    <section className="py-16 bg-[#f8f9fa]">
-      <div className="max-w-[1200px] mx-auto px-4">
+    <section className="py-20 bg-gradient-to-t from-[#DEECFE] to-white">
+      {/* Sección Servicios */}
+      <div className="mb-16 max-w-6xl mx-auto">
         <ScrollReveal>
-          <h2 className="section-title text-center">¿Qué hacemos?</h2>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full mb-6">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <span className="text-blue-600 font-medium text-sm">Nuestros servicios</span>
+            </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6">
+              ¿Cómo te ayudamos?
+            </h2>
+            <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto leading-relaxed">
+              Transformamos tu presencia digital con soluciones 100% personalizadas que impulsan el crecimiento de tu marca
+            </p>
+          </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={200}>
-          <p className="section-subtitle text-center">
-            Brindamos soluciones digitales 100% personalizadas para comercios y marcas.
-          </p>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <ScrollReveal
               key={service.title}
               delay={300 + index * 100}
-              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              className="group h-full"
             >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-3 text-text">{service.title}</h3>
-              <p className="text-muted-foreground mb-4">{service.description}</p>
-              <Link href={service.link} className="text-primary font-medium inline-flex items-center hover:underline">
-                Saber más <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
+              <div className={`relative w-full p-6 ${service.bgColor} hover:bg-white hover:border-2 hover:${service.borderColor} hover:border rounded-2xl ${service.borderColor} border hover:border-gray-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg h-full flex flex-col`}>
+                {/* Icono */}
+                <div className={`w-12 h-12 ${service.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  {service.icon}
+                </div>
+
+                {/* Contenido principal */}
+                <div className="flex-grow">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Link */}
+                <Link
+                  href={service.link}
+                  className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-all duration-300 group/link text-sm mt-auto"
+                >
+                  Conocer más
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
             </ScrollReveal>
           ))}
         </div>
-
-        <ScrollReveal delay={800} className="text-center mt-10">
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white">
-            <Link href="/servicios">
-              Ver todos los servicios <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </ScrollReveal>
       </div>
+
+      <ScrollReveal delay={900} className="text-center">
+        <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 text-lg rounded-xl">
+          <Link href="/servicios">
+            Explorar todos los servicios <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </Button>
+      </ScrollReveal>
     </section>
   )
 }
