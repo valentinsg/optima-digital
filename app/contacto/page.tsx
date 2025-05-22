@@ -26,7 +26,7 @@ export default function ContactPage() {
                 <Mail className="h-6 w-6 text-primary mt-1" />
                 <div>
                   <h3 className="font-medium text-text">Email</h3>
-                  <p className="text-muted-foreground">info@optimadigital.com</p>
+                  <p className="text-muted-foreground">optimaagenciadigital@gmail.com</p>
                 </div>
               </div>
 
@@ -34,7 +34,7 @@ export default function ContactPage() {
                 <Phone className="h-6 w-6 text-primary mt-1" />
                 <div>
                   <h3 className="font-medium text-text">Teléfono</h3>
-                  <p className="text-muted-foreground">+54 9 11 0000 0000</p>
+                  <p className="text-muted-foreground">+54 9 11 28836821</p>
                 </div>
               </div>
 
@@ -49,7 +49,7 @@ export default function ContactPage() {
               <div className="pt-6">
                 <h3 className="font-medium text-text mb-4">Seguinos en redes</h3>
                 <Link
-                  href="https://instagram.com/optimaadigital_"
+                  href="https://www.instagram.com/optimaadigital_"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block text-primary hover:underline"
@@ -60,7 +60,7 @@ export default function ContactPage() {
 
               <div className="pt-6">
                 <Link
-                  href="https://wa.me/5491100000000"
+                  href="https://wa.me/5491128836821"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-md bg-[#25D366] px-6 py-3 font-medium text-white hover:bg-[#25D366]/90 transition-colors"

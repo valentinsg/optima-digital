@@ -41,7 +41,7 @@ export default function CTASection() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:text-white hover:bg-white/10 hover:border-white/50 font-medium p-6 h-auto rounded-lg backdrop-blur-sm transition-all duration-300 group">
-              <Link href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <Link href="https://wa.me/5491128836821" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 Contactanos por WhatsApp
               </Link>
