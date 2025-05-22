@@ -8,14 +8,15 @@ import TestimonialsSection from "@/components/testimonials-section"
 import TeamSection from "@/components/team-section"
 import CTASection from "@/components/cta-section"
 
+
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ServicesSection />
       <AboutSection />
-      <DifferentialSection />
+      <ServicesSection />
       <MethodologySection />
+      {/* <DifferentialSection /> */}
       <PortfolioSection />
       <TestimonialsSection />
       <TeamSection />

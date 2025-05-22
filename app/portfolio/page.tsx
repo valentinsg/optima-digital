@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ScrollReveal from "@/components/scroll-reveal"
+import { ArrowLeft, ExternalLink, ArrowRight } from "lucide-react"
 
 const portfolioItems = [
   {
@@ -85,88 +86,141 @@ const portfolioItems = [
 
 export default function PortfolioPage() {
   return (
-    <div className="pt-32 pb-20">
-      <div className="max-w-[1200px] mx-auto px-4">
-        <ScrollReveal>
-          <h1 className="text-4xl font-bold text-center mb-4 text-text">Nuestro Portfolio</h1>
-        </ScrollReveal>
+    <div className="pt-24 pb-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16">
+          <ScrollReveal>
+            <Link 
+              href="/" 
+              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8"
+            >
+              <ArrowLeft className="h-5 w-5 mr-2" />
+              Volver al inicio
+            </Link>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Nuestro Portfolio
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl">
+              Conocé en detalle los proyectos que hemos desarrollado y los resultados que hemos logrado para nuestros clientes.
+            </p>
+          </ScrollReveal>
+        </div>
 
-        <ScrollReveal delay={200}>
-          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-            Conocé algunos de nuestros proyectos más destacados y los resultados que hemos logrado para nuestros
-            clientes.
-          </p>
-        </ScrollReveal>
-
-        <div className="space-y-32 mt-16">
+        <div className="space-y-32">
           {portfolioItems.map((project, index) => (
-            <div key={project.id} id={project.id} className="scroll-mt-32">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <ScrollReveal delay={300} className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="overflow-hidden rounded-lg">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto object-cover"
-                    />
+            <article key={project.id} id={project.id} className="scroll-mt-24 group">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                <ScrollReveal 
+                  delay={200} 
+                  className="lg:col-span-7 relative rounded-2xl overflow-hidden bg-gray-100 aspect-video"
+                >
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                    <div className="text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <span className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium mb-3">
+                        {project.category}
+                      </span>
+                      <h2 className="text-3xl font-bold">{project.title}</h2>
+                    </div>
                   </div>
                 </ScrollReveal>
 
-                <ScrollReveal delay={400}>
-                  <div>
-                    <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4">
-                      {project.category}
-                    </span>
-                    <h2 className="text-3xl font-bold mb-4 text-text">{project.title}</h2>
-                    <p className="text-muted-foreground mb-6">{project.description}</p>
+                <ScrollReveal delay={300} className="lg:col-span-5">
+                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Cliente</h3>
+                        <p className="text-lg font-medium text-gray-900">{project.client}</p>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Descripción</h3>
+                        <p className="text-gray-600">{project.description}</p>
+                      </div>
 
-                    <div className="space-y-4 mb-8">
                       <div>
-                        <h3 className="font-semibold text-text">Cliente:</h3>
-                        <p>{project.client}</p>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Desafío</h3>
+                        <p className="text-gray-600">{project.challenge}</p>
                       </div>
+
                       <div>
-                        <h3 className="font-semibold text-text">Desafío:</h3>
-                        <p>{project.challenge}</p>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Solución</h3>
+                        <p className="text-gray-600">{project.solution}</p>
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-text">Solución:</h3>
-                        <p>{project.solution}</p>
+
+                      <div className="p-6 bg-primary/5 rounded-xl">
+                        <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Resultados</h3>
+                        <p className="text-primary font-medium">{project.results}</p>
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-text">Resultados:</h3>
-                        <p className="font-medium text-primary">{project.results}</p>
-                      </div>
+
+                      <Button 
+                        asChild 
+                        className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white py-6 text-base font-medium rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                      >
+                        <Link href="/contacto" className="flex items-center justify-center">
+                          Quiero un proyecto similar
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </Button>
                     </div>
-
-                    <Button asChild className="bg-primary hover:bg-primary/90 text-white">
-                      <Link href="/contacto">Quiero un proyecto similar</Link>
-                    </Button>
                   </div>
                 </ScrollReveal>
               </div>
 
-              <ScrollReveal delay={500}>
-                <h3 className="text-2xl font-semibold mb-6 text-text">Galería del proyecto</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <ScrollReveal delay={400} className="mt-16">
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900">Galería del proyecto</h3>
+                  <span className="text-sm text-gray-500">{project.gallery.length} imágenes</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {project.gallery.map((image, i) => (
-                    <div key={i} className="overflow-hidden rounded-lg">
+                    <div 
+                      key={i} 
+                      className="group relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] hover:shadow-lg transition-all duration-300"
+                    >
                       <Image
                         src={image || "/placeholder.svg"}
                         alt={`${project.title} - Imagen ${i + 1}`}
-                        width={800}
-                        height={600}
-                        className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button className="bg-white/90 text-gray-900 p-3 rounded-full hover:bg-white transition-colors">
+                          <ExternalLink className="h-5 w-5" />
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>
               </ScrollReveal>
-            </div>
+
+              {index < portfolioItems.length - 1 && (
+                <div className="border-t border-gray-200 my-16"></div>
+              )}
+            </article>
           ))}
         </div>
+
+        <ScrollReveal className="mt-24 text-center">
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">¿Listo para comenzar tu proyecto?</h3>
+            <p className="text-gray-600 mb-6">
+              Transformá tu visión en realidad con nuestro equipo de expertos. Contanos sobre tu proyecto y te ayudaremos a hacerlo realidad.
+            </p>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white">
+              <Link href="/contacto" className="flex items-center mx-auto w-fit">
+                Hablemos de tu proyecto
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </ScrollReveal>
       </div>
     </div>
   )

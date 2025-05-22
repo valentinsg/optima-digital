@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Camera, Globe, Palette, Instagram, BarChart, Search } from "lucide-react"
+import { ArrowRight, Camera, Globe, Palette, Instagram, BarChart, Search, TrendingUp, Users, BriefcaseIcon, Quote } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ScrollReveal from "@/components/scroll-reveal"
 
@@ -63,22 +63,32 @@ export default function ServicesSection() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-t from-[#DEECFE] to-white">
+    <section className="py-20 bg-gradient-to-b from-[#DEECFE] to-white text-gray-700">
       {/* Sección Servicios */}
       <div className="mb-16 max-w-6xl mx-auto">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full mb-6">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              <span className="text-blue-600 font-medium text-sm">Nuestros servicios</span>
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary mb-4">
+              <BriefcaseIcon className="w-4 h-4 text-primary" />
+              <span className="text-primary text-sm font-medium">Nuestros Servicios</span>
             </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6">
-              ¿Cómo te ayudamos?
+
+            <h2 className="text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-primary to-primary bg-clip-text text-primary">
+              ¿Qué ofrecemos?
             </h2>
-            <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto leading-relaxed">
-              Transformamos tu presencia digital con soluciones 100% personalizadas que impulsan el crecimiento de tu marca
-            </p>
+
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+              <Quote className="w-8 h-8 text-blue-400" />
+              <div className="w-16 h-1 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"></div>
+            </div>
           </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={200}>
+          <p className="text-center text-xl text-gray-800 mb-16 max-w-3xl mx-auto leading-relaxed">
+            Transformamos tu presencia digital con soluciones 100% personalizadas que impulsan el crecimiento de tu marca
+          </p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

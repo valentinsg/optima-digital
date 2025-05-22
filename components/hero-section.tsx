@@ -8,10 +8,10 @@ import HeroVisual from "../public/hero-visual-uncut.png"
 
 export default function HeroSection() {
   return (
-    <section className="pt-28 md:pt-40 pb-32 bg-gradient-to-b from-[#DEECFE] to-white min-h-[80vh]">
-      <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
+    <section className="flex items-center justify-center min-h-screen bg-gradient-to-b from-[#DEECFE] to-white py-16">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
         {/* TEXT SECTION */}
-        <div className="text-center md:text-left md:max-w-3xl">
+        <div className="text-center md:text-left md:max-w-4xl">
           {/* Etiqueta chica arriba */}
           <ScrollReveal>
             <span className="uppercase text-sm font-bold text-primary tracking-widest mb-4 block">
@@ -34,7 +34,7 @@ export default function HeroSection() {
           {/* Botones CTA */}
           <ScrollReveal delay={400}>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-8">
-              <Button asChild size="lg" className="bg-primary hover:text-primary hover:bg-white/50 text-white shadow-md">
+              <Button asChild size="lg" className="bg-primary p-6 text-md hover:text-primary hover:bg-white/50 text-white shadow-md">
                 <Link href="/contacto">
                   Trabajá con nosotros <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -42,7 +42,7 @@ export default function HeroSection() {
               <Button
                 asChild
                 variant="outline"
-                className="border-2 border-primary text-primary hover:text-white hover:bg-primary/90"
+                className="border-2 border-primary text-primary p-6 text-md hover:text-white hover:bg-primary/90"
                 size="lg"
               >
                 <Link href="/servicios">Conocé nuestros servicios</Link>

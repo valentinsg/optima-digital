@@ -1,5 +1,6 @@
 import Image from "next/image"
 import ScrollReveal from "@/components/scroll-reveal"
+import { Heart, Quote } from "lucide-react"
 
 const teamMembers = [
   {
@@ -24,14 +25,29 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-[#DEECFE] to-white">
       <div className="max-w-[1200px] mx-auto px-4">
         <ScrollReveal>
-          <h2 className="section-title text-center">Nuestro Equipo</h2>
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary mb-4">
+              <Heart className="w-4 h-4 text-primary" />
+              <span className="text-primary text-sm font-medium">Equipo</span>
+            </div>
+
+            <h2 className="text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-primary to-primary bg-clip-text text-primary">
+              Nuestro Equipo
+            </h2>
+
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+              <Quote className="w-8 h-8 text-blue-400" />
+              <div className="w-16 h-1 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"></div>
+            </div>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <p className="section-subtitle text-center">
+          <p className="text-center text-xl text-gray-800 mb-16 max-w-3xl mx-auto leading-relaxed">
             Conocé a los profesionales apasionados que trabajan para impulsar tu negocio en el mundo digital.
           </p>
         </ScrollReveal>
