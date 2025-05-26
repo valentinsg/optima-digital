@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 29% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 29% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 29% 11%;
+    --primary: 240 29% 11%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 240 29% 11%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 240 29% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 197 71% 73%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 29% 11%;
+    --foreground: 0 0% 100%;
+    --card: 240 29% 11%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 29% 11%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 240 29% 11%;
+    --secondary: 240 19% 16%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 19% 16%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 240 19% 16%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 19% 16%;
+    --input: 240 19% 16%;
+    --ring: 197 71% 33%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-sans {
+  font-family: var(--font-inter);
+}
+
+/* Simple animations that work reliably */
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
