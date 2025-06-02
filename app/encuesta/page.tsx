@@ -2,10 +2,6 @@
 
 import { useState } from "react";
 
-// Para enviar emails, instala emailjs-com: npm install emailjs-com
-// Luego, completa tu userID y templateID de EmailJS abajo
-import emailjs from "emailjs-com";
-
 export default function Encuesta() {
   const [formData, setFormData] = useState({
     nombre: "",
@@ -35,20 +31,49 @@ export default function Encuesta() {
     e.preventDefault();
     setLoading(true);
     setError("");
+    
     try {
-      // Reemplaza estos valores por los tuyos de EmailJS
-      const serviceID = "default_service";
-      const templateID = "TU_TEMPLATE_ID"; // <-- Cambia esto
-      const userID = "TU_USER_ID"; // <-- Cambia esto
-      await emailjs.send(serviceID, templateID, {
-        ...formData,
-        asesoria: formData.asesoria ? "Sí" : "No",
-      }, userID);
-      setEnviado(true);
+      // Formatear los datos del formulario para el mensaje de WhatsApp
+      const message = `*Nuevo contacto desde el formulario*
+
+*Nombre y apellido:* ${formData.nombre}
+*Email:* ${formData.email}
+*Teléfono:* ${formData.telefono || 'No proporcionado'}
+*Ciudad:* ${formData.ciudad}
+*Servicio de interés:* ${formData.servicio}
+*Uso de redes sociales:* ${formData.redes}
+*Representación en línea:* ${formData.representacion}
+*Importancia del contenido visual (1-10):* ${formData.importancia}
+*Quiere asesoría gratuita:* ${formData.asesoria ? 'Sí' : 'No'}`;
+
+      // Codificar el mensaje para URL
+      const encodedMessage = encodeURIComponent(message);
+      
+      // Número de teléfono de destino (código de país + número sin espacios ni caracteres especiales)
+      const phoneNumber = '+5491128836821'; 
+      
+      // Crear el enlace de WhatsApp con el mensaje
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      
+      console.log('URL de WhatsApp:', whatsappUrl); // Para debug
+      
+      // Abrir WhatsApp en una nueva pestaña
+      const newWindow = window.open(whatsappUrl, '_blank');
+      
+      if (newWindow) {
+        // Solo marcar como enviado si la ventana se abrió correctamente
+        setEnviado(true);
+      } else {
+        // Si no se pudo abrir la ventana (bloqueador de pop-ups)
+        setError("No se pudo abrir WhatsApp. Verifica que los pop-ups estén habilitados o intenta de nuevo.");
+      }
+      
     } catch (err) {
-      setError("Hubo un error al enviar el formulario. Intenta nuevamente o escríbenos a optimaagenciadigital@gmail.com");
+      console.error('Error al enviar el formulario:', err);
+      setError("Hubo un error al preparar el mensaje. Por favor, inténtalo de nuevo o escríbenos directamente a optimaagenciadigital@gmail.com");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
