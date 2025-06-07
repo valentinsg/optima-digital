@@ -18,7 +18,7 @@ const teamMembers = [
   {
     name: "Valentín Sánchez Guevara",
     role: "Responsable de Desarrollo Web y Producto Digital",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/Valen.png",
     bio: "Encargado de diseñar y construir soluciones digitales a medida que potencien la presencia online y el rendimiento de los clientes.",
   },
 ]
