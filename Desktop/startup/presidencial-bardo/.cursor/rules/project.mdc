@@ -1,0 +1,275 @@
+# 🎭 PRESIDENCIAL BARDO - Documentación del Proyecto
+
+## 📋 Resumen del Proyecto
+
+**Presidencial Bardo** es una parodia jugable de Argentina, basada en el proyecto open-source Mysttic Realm de LautiDev. Es un juego 2D de supervivencia política donde el jugador controla un bardo poderoso que defiende el reino político contra oleadas infinitas de trolls, ministros y ovnis.
+
+### 🎯 Concepto Central
+- **Género**: Shooter 2D top-down de supervivencia política
+- **Tema**: Sátira política argentina con elementos absurdos
+- **Estilo Visual**: Pixel Art retro con estética política
+- **Mecánicas**: Hechizos políticos, oleadas infinitas, sistema de mejoras
+- **Métricas**: Inflación, caos, poder popular, dólar blue
+
+## 🏗️ Arquitectura Técnica
+
+### 🎮 Motor de Juego
+- **HTML5 Canvas API** para renderizado 2D a 60 FPS
+- **Sistema de sprites** con animaciones por dirección
+- **Colisiones AABB** para precisión en combate
+- **Object pooling** para optimización de memoria
+- **Spatial partitioning** para detección eficiente de colisiones
+
+### 🧠 Frontend
+- **Next.js 15** con App Router
+- **React 19** con hooks y componentes funcionales
+- **TypeScript** con tipado estricto
+- **TailwindCSS** + tailwindcss-animate para estilos
+- **Clsx** y tailwind-merge para composición de clases
+
+### ☁️ Backend & Base de Datos
+- **Supabase**: PostgreSQL + autenticación + leaderboard
+- **Row Level Security (RLS)** activado
+- **Edge Functions** para validación de puntajes
+- **Real-time subscriptions** para leaderboard
+
+### ⚙️ Herramientas de Desarrollo
+- **BiomeJS** para formato y linting
+- **Vercel** como plataforma de deploy
+- **@vercel/analytics** para métricas
+- **Bun** como runtime (opcional)
+
+## 🎮 Gameplay
+
+### 🎭 Personaje Principal
+- **Bardo Político**: Protagonista con habilidades satíricas
+- **Hechizos**: Sistema de magia política con 6 niveles
+- **Movimiento**: Control fluido con WASD/flechas
+- **Aim**: Sistema de apuntado con mouse
+
+### 👾 Enemigos
+- **Trolls**: Enemigos básicos de redes sociales
+- **Ministros**: Criaturas políticas con habilidades especiales
+- **Ovnis**: Enemigos extraterrestres con tecnología avanzada
+- **Bosses**: Jefes cada 5 oleadas con habilidades únicas
+
+### 🎯 Mecánicas Principales
+- **Oleadas Infinitas**: Dificultad progresiva cada 10 oleadas
+- **Sistema de Hechizos**: 6 niveles de poder mágico
+- **Recolección de Monedas**: Para comprar mejoras
+- **Health Packs**: Para supervivencia estratégica
+- **Leaderboard Global**: Competencia mundial
+
+### 📊 HUD y Métricas
+- **Inflación** (rojo): Indicador de caos económico
+- **Dólar Blue** (azul): Valor de la moneda paralela
+- **Poder Popular** (verde): Aprobación del bardo
+- **Caos** (amarillo): Nivel de desorden político
+
+## 📁 Estructura del Proyecto
+
+```
+presidencial-bardo/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   │   └── validate-score/ # Validación de puntajes
+│   ├── credits/           # Página de créditos
+│   ├── game/              # Página principal del juego
+│   ├── patch-notes/       # Notas de parche
+│   ├── settings/          # Configuraciones
+│   ├── layout.tsx         # Layout principal
+│   ├── page.tsx           # Página de inicio
+│   ├── manifest.ts        # PWA manifest
+│   └── sitemap.ts         # Sitemap para SEO
+├── components/            # Componentes React
+│   ├── GameScreen.tsx     # Pantalla principal del juego
+│   ├── GameCanvas.tsx     # Canvas y loop del juego
+│   ├── GameUI.tsx         # Interfaz del juego
+│   ├── HomeScreen.tsx     # Pantalla de inicio
+│   ├── LoadingScreen.tsx  # Pantalla de carga
+│   ├── Leaderboard.tsx    # Tabla de puntajes
+│   ├── Marketplace.tsx    # Tienda de mejoras
+│   ├── MobileControls.tsx # Controles móviles
+│   ├── GameOverlay.tsx    # Overlays del juego
+│   ├── ScoreSubmissionModal.tsx # Modal de envío de puntajes
+│   ├── ShareModal.tsx     # Modal de compartir
+│   ├── CoinParticles.tsx  # Efectos de partículas
+│   ├── FloatingParticles.tsx # Partículas flotantes
+│   └── CoinIcon.tsx       # Icono de monedas
+├── game/                  # Lógica del juego
+│   ├── Player.ts          # Control del jugador
+│   ├── Creatures.ts       # IA y comportamiento de enemigos
+│   ├── Projectiles.ts     # Física de proyectiles
+│   ├── Collisions.ts      # Detección de colisiones
+│   ├── Renderer.ts        # Motor de renderizado
+│   ├── AIBehaviors.ts     # Comportamientos de IA
+│   ├── HealthPacks.ts     # Sistema de salud
+│   ├── MapManager.ts      # Gestión de mapas
+│   └── Pathfinding.ts     # Algoritmo de pathfinding
+├── hooks/                 # Custom React Hooks
+│   ├── useGameController.ts # Control principal del juego
+│   ├── useGameState.ts    # Estado del juego
+│   ├── useAssetLoader.ts  # Carga de assets
+│   ├── useInputHandlers.ts # Manejo de input
+│   ├── useGameAudio.ts    # Sistema de audio
+│   ├── useLeaderboard.ts  # Leaderboard
+│   ├── useGameScreens.ts  # Gestión de pantallas
+│   ├── useGameEffects.ts  # Efectos visuales
+│   ├── useGameTracking.ts # Tracking de eventos
+│   ├── useUISound.ts      # Sonidos de UI
+│   ├── useMobile.tsx      # Detección móvil
+│   └── useHandheldDetector.tsx # Detector de dispositivos
+├── lib/                   # Utilidades y configuraciones
+│   ├── supabase.ts        # Cliente de Supabase
+│   ├── metadata.ts        # Metadatos SEO
+│   └── utils.ts           # Utilidades generales
+├── constants/             # Constantes del juego
+│   └── game.ts            # Configuraciones y balance
+├── types/                 # Definiciones TypeScript
+│   └── game.ts            # Tipos del juego
+├── utils/                 # Utilidades
+│   ├── math.ts            # Matemáticas y física
+│   ├── coinParticles.ts   # Sistema de partículas
+│   ├── leaderboard.ts     # Utilidades del leaderboard
+│   ├── marketplace.ts     # Lógica de la tienda
+│   └── security.ts        # Utilidades de seguridad
+├── data/                  # Datos estáticos
+│   ├── mapLayouts/        # Layouts de mapas
+│   │   ├── map1.ts
+│   │   ├── map2.ts
+│   │   └── map3.ts
+│   └── patchNotes.ts      # Notas de parche
+├── public/                # Assets estáticos
+│   ├── wizard/            # Sprites del jugador
+│   ├── creature/          # Sprites de enemigos básicos
+│   ├── mage/              # Sprites de enemigos mágicos
+│   ├── explosive/         # Sprites de enemigos explosivos
+│   ├── health/            # Sprites de salud
+│   ├── floor-texture.png  # Textura del suelo
+│   ├── og.png             # Imagen para redes sociales
+│   └── favicon.ico        # Favicon
+└── sql/                   # Scripts de base de datos
+    ├── create_game_stats_table.sql
+    └── rate_limiting_migration.sql
+```
+
+## 🎵 Sistema de Audio
+
+### 🔊 Características
+- **Web Audio API** para generación sintética de sonidos
+- **Efectos de sonido** generados programáticamente
+- **Música de menú** con tonos ambientales
+- **Sistema de configuración** de volumen y mute
+- **Persistencia** de configuraciones en localStorage
+
+### 🎼 Tipos de Sonido
+- **UI Sounds**: Hover, select, back, start, error
+- **Game Sounds**: Spells, enemy deaths, coin collection
+- **Menu Music**: Tono ambiental en bucle
+- **Mobile Sounds**: Optimizados para dispositivos táctiles
+
+## 🚀 Comandos de Desarrollo
+
+```bash
+# Instalar dependencias
+npm install
+
+# Ejecutar en desarrollo (puerto 3001)
+npm run dev
+
+# Construir para producción
+npm run build
+
+# Ejecutar en producción
+npm start
+
+# Linting y formato
+npm run lint
+```
+
+## 🔧 Configuración del Entorno
+
+### Variables de Entorno
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### Base de Datos
+- **Tabla leaderboard**: Almacena puntajes globales
+- **Tabla game_stats**: Estadísticas del juego
+- **RLS activado**: Seguridad a nivel de fila
+- **Rate limiting**: Protección contra spam
+
+## 🎨 Guías de Estilo
+
+### 🎭 Tema Visual
+- **Colores principales**: Púrpura (#8A2BE2), Azul (#4A90E2)
+- **Fuente**: Press Start 2P (pixel art)
+- **Estilo**: Retro gaming con toques políticos
+- **Efectos**: Partículas, blur, gradientes
+
+### 📱 Responsive Design
+- **Desktop**: Controles con teclado y mouse
+- **Mobile**: Controles táctiles virtuales
+- **Tablet**: Adaptación automática
+- **Fullscreen**: API nativa del navegador
+
+## 🐛 Debugging y Testing
+
+### 🧪 Testing
+- **Console logs** para debugging del juego
+- **Performance monitoring** con Vercel Analytics
+- **Error boundaries** para captura de errores
+- **Mobile testing** con emuladores
+
+### 🔍 Debug Tools
+- **FPS counter** en modo desarrollo
+- **Collision visualization** para debugging
+- **Audio debug** para problemas de sonido
+- **State inspector** para debugging de estado
+
+## 📚 Convenciones de Código
+
+### 📝 Nomenclatura
+- **Componentes**: PascalCase (ej: `GameScreen.tsx`)
+- **Hooks**: camelCase con prefijo `use` (ej: `useGameState.ts`)
+- **Utilidades**: camelCase (ej: `math.ts`)
+- **Tipos**: PascalCase (ej: `GameState`)
+
+### 🏗️ Estructura de Archivos
+- **Un archivo por componente** React
+- **Separación de lógica** en hooks personalizados
+- **Utilidades reutilizables** en `/utils`
+- **Tipos centralizados** en `/types`
+
+## 🤝 Contribución
+
+### 📋 Workflow
+1. **Fork** del repositorio
+2. **Feature branch** (`git checkout -b feature/nueva-funcionalidad`)
+3. **Desarrollo** con TypeScript y testing
+4. **Commit** con mensajes descriptivos
+5. **Pull Request** con descripción detallada
+
+### 📝 Patch Notes
+- **Actualizar** `/data/patchNotes.ts`
+- **Categorizar** cambios (NEW, IMPROVED, FIXED, BALANCED)
+- **Versionar** siguiendo semver
+- **Describir** claramente los cambios
+
+## 🙏 Créditos y Agradecimientos
+
+- **Valentín Sánchez Guevara** - Desarrollo y adaptación
+- **Comunidad Argentina** - Contexto político satírico
+
+---
+
+*"Defiende el reino político con el poder de la sátira y la creatividad"* 🎭
+
+
+
+
+    “Gobernar es sobrevivir... pero con estilo.”
+
+

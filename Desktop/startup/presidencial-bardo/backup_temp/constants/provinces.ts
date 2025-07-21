@@ -1,0 +1,28 @@
+import { ProvinceId } from "@/types/political";
+
+export const PROVINCE_NAMES: Record<ProvinceId, string> = {
+    [ProvinceId.BUENOS_AIRES]: "Buenos Aires",
+    [ProvinceId.CABA]: "CABA",
+    [ProvinceId.CATAMARCA]: "Catamarca",
+    [ProvinceId.CHACO]: "Chaco",
+    [ProvinceId.CHUBUT]: "Chubut",
+    [ProvinceId.CORDOBA]: "Córdoba",
+    [ProvinceId.CORRIENTES]: "Corrientes",
+    [ProvinceId.ENTRE_RIOS]: "Entre Ríos",
+    [ProvinceId.FORMOSA]: "Formosa",
+    [ProvinceId.JUJUY]: "Jujuy",
+    [ProvinceId.LA_PAMPA]: "La Pampa",
+    [ProvinceId.LA_RIOJA]: "La Rioja",
+    [ProvinceId.MENDOZA]: "Mendoza",
+    [ProvinceId.MISIONES]: "Misiones",
+    [ProvinceId.NEUQUEN]: "Neuquén",
+    [ProvinceId.RIO_NEGRO]: "Río Negro",
+    [ProvinceId.SALTA]: "Salta",
+    [ProvinceId.SAN_JUAN]: "San Juan",
+    [ProvinceId.SAN_LUIS]: "San Luis",
+    [ProvinceId.SANTA_CRUZ]: "Santa Cruz",
+    [ProvinceId.SANTA_FE]: "Santa Fe",
+    [ProvinceId.SANTIAGO_DEL_ESTERO]: "Santiago del Estero",
+    [ProvinceId.TIERRA_DEL_FUEGO]: "Tierra del Fuego",
+    [ProvinceId.TUCUMAN]: "Tucumán",
+};
